@@ -1,0 +1,13 @@
+[Unit]
+Description=Snapserver Pi three-minute Bluetooth pairing window
+After=bluetooth.service snapserver-pi-agent.service
+Requires=bluetooth.service snapserver-pi-agent.service
+
+[Service]
+# Type=simple lets boot continue while this process holds the window open.
+Type=simple
+Environment=PAIRING_WINDOW_SECONDS=180
+ExecStart=/usr/local/lib/snapserver-pi/pairing-window.sh
+
+[Install]
+WantedBy=multi-user.target

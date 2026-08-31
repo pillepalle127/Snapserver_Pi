@@ -1,0 +1,13 @@
+[Unit]
+Description=Snapserver Pi device-independent A2DP recovery
+After=pipewire.service wireplumber.service
+Wants=pipewire.service wireplumber.service
+
+[Service]
+Type=simple
+ExecStart=%h/.local/lib/snapserver-pi/bluetooth-audio-watch.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
